@@ -19,9 +19,9 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
+    "outDir": "./lib",
     "pretty": true,
-    "rootDir": ".",
-    "sourceMap": true,
+    "rootDir": "./src",
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "typeRoots": [
