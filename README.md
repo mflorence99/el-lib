@@ -1,2 +1,3 @@
-# el-lib
-Common library for Electron projecrs
+# EL-Lib
+
+Common library for electron projects.
