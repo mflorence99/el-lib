@@ -1,1 +1,0 @@
-[{"__symbolic":"module","version":4,"metadata":{"EllipsizePipe":{"__symbolic":"class","decorators":[{"__symbolic":"call","expression":{"__symbolic":"reference","module":"@angular/core","name":"Pipe","line":12,"character":1},"arguments":[{"name":"libEllipsize"}]}],"members":{"transform":[{"__symbolic":"method"}]}}}}]
