@@ -1,7 +1,7 @@
 set -e
 npm run build
-git add *
-git commit -m "Prepare to publish" 
+git add lib/*
+git commit -m "Prepare to publish"
 git push origin master
 npm version patch
 npm publish
