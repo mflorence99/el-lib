@@ -31,7 +31,7 @@ import { DrawerPanelComponent } from './drawer-panel';
       z-index: -1;
     }
 
-    .drawer-mask.masked {
+    .masked {
       opacity: 1;
       z-index: 99;
     }
