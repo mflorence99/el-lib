@@ -1,10 +1,11 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { DrawerContainerComponent } from './components/drawer-container';
 import { DrawerPanelComponent } from './components/drawer-panel';
 import { EllipsizePipe } from './pipes/ellipsize';
-import { RouterModule } from '@angular/router';
 
 /**
  * el-lib module definition
@@ -13,6 +14,12 @@ import { RouterModule } from '@angular/router';
 const COMPONENTS = [
   DrawerContainerComponent,
   DrawerPanelComponent
+];
+
+const MODULES = [
+  BrowserModule,
+  BrowserAnimationsModule,
+  CommonModule
 ];
 
 const PIPES = [
@@ -30,14 +37,11 @@ const SERVICES = [ ];
 
   exports: [
     ...COMPONENTS,
-    ...PIPES,
-    CommonModule,
-    RouterModule
+    ...PIPES
   ],
 
   imports: [
-    CommonModule,
-    RouterModule
+    ...MODULES,
   ]
 
 })
