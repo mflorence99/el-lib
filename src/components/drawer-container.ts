@@ -29,12 +29,11 @@ import { DrawerPanelComponent } from './drawer-panel';
       top: 0;
       width: 100%;
       z-index: -1;
+    }
 
-      &.masked {
-        opacity: 1;
-        z-index: 99;
-      }
-
+    .drawer-mask.masked {
+      opacity: 1;
+      z-index: 99;
     }
   `],
   template: `

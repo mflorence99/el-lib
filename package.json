@@ -6,7 +6,6 @@
     "build": "ngc",
     "ngc": "ngc"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^5.2.0",
     "@angular/common": "^5.2.0",
