@@ -1,5 +1,6 @@
 npm run build
 git add lib/*
+git add src/*
 git commit -m "Prepare to publish"
 git push origin master
 set -e
