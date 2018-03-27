@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { DrawerContainerComponent } from './components/drawer-container';
 import { DrawerPanelComponent } from './components/drawer-panel';
 import { EllipsizePipe } from './pipes/ellipsize';
+import { RouterModule } from '@angular/router';
 
 /**
  * el-lib module definition
@@ -21,7 +22,8 @@ const COMPONENTS = [
 const MODULES = [
   BrowserModule,
   BrowserAnimationsModule,
-  CommonModule
+  CommonModule,
+  RouterModule
 ];
 
 const PIPES = [
