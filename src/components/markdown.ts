@@ -6,12 +6,12 @@ declare var marked: any;
 
 @Component({
   selector: 'lib-markdown',
-  styleUrls: [`
+  styles: [`
     :host {
       display: block;
     }
   `],
-  templateUrl: `
+  template: `
     <div
       class="content"
       #markdown>
