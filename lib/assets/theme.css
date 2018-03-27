@@ -3,8 +3,6 @@
 }
 
 body {
-  background-color: var(--paper-grey-900);
-  color: var(--paper-grey-100);
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   font-weight: 400;

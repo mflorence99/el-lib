@@ -29,7 +29,7 @@ export function routeAnimation(): AnimationEntryMetadata {
       group([
         query(':enter', [
           style({
-            'background-color': 'white',
+            'background-color': 'var(--background-color)',
             overflow: 'hidden',
             transform: 'translateX(-100%)',
             width: '100%'
