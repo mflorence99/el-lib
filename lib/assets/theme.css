@@ -23,3 +23,66 @@ html {
   height: 100%;
   width: 100%;
 }
+
+lib-markdown blockquote {
+  border-left: 5px solid var(--paper-grey-400);
+  font-weight: 200;
+  margin: 0;
+  padding-left: 40px;
+}
+
+lib-markdown h1,
+lib-markdown h2,
+lib-markdown h3,
+lib-markdown h4,
+lib-markdown h5,
+lib-markdown h6 {
+  border-bottom: 1px solid var(--paper-grey-400);
+  padding-bottom: 4px;
+}
+
+lib-markdown img {
+  max-width: 100%;
+  padding: 0 45px;
+}
+
+lib-markdown p,
+lib-markdown pre,
+lib-markdown ol,
+lib-markdown ul {
+  line-height: 1.5;
+}
+
+lib-markdown pre {
+  background-color: var(--paper-grey-100);
+  break-inside: avoid;
+  padding: 12px;
+  page-break-inside: avoid;
+  white-space: pre-wrap;
+}
+
+lib-markdown table {
+  border-collapse: collapse;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  width: 100%;
+}
+
+lib-markdown table td {
+  vertical-align: top;
+}
+
+lib-markdown table td,
+lib-markdown table th {
+  border: 1px solid var(--paper-grey-400);
+  padding: 6px 12px;
+}
+
+lib-markdown table th {
+  font-weight: bold;
+  text-align: center;
+}
+
+lib-markdown table tr:nth-child(2n) {
+  background-color: var(--paper-grey-100);
+}

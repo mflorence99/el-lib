@@ -30,6 +30,9 @@
     "codelyzer": "^4.0.1",
     "electron": "^1.8.4",
     "eslint": "^4.19.0",
+    "marked": "^0.3.19",
+    "moment": "^2.21.0",
+    "numeral": "^2.0.6",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
