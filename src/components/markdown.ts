@@ -27,7 +27,7 @@ export class MarkdownComponent implements AfterViewInit  {
 
   ngAfterViewInit() {
     const el = this.markdown.nativeElement;
-    el.innerHTML = marked(el.innerText);
+    el.innerHTML = marked(el.innerHTML);
   }
 
 }
