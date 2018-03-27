@@ -1,5 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
+import { AnimatedRouterOutletComponent } from './components/animated-router-outlet';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { EllipsizePipe } from './pipes/ellipsize';
  */
 
 const COMPONENTS = [
+  AnimatedRouterOutletComponent,
   DrawerContainerComponent,
   DrawerPanelComponent
 ];
