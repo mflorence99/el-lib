@@ -1,3 +1,25 @@
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(128, 128, 128, 0.9);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.66);
+  border-radius: 4px;
+}
+
+:-webkit-any(article,aside,nav,section)
+:-webkit-any(article,aside,nav,section) h1 {
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+}
+
 :focus {
   outline: 0;
 }
@@ -25,7 +47,7 @@ html {
 }
 
 lib-markdown blockquote {
-  border-left: 5px solid var(--paper-grey-400);
+  border-left: 5px solid var(--mat-grey-400);
   font-weight: 200;
   margin: 0;
   padding-left: 40px;
@@ -37,7 +59,7 @@ lib-markdown h3,
 lib-markdown h4,
 lib-markdown h5,
 lib-markdown h6 {
-  border-bottom: 1px solid var(--paper-grey-400);
+  border-bottom: 1px solid var(--mat-grey-400);
   padding-bottom: 4px;
 }
 
@@ -54,7 +76,7 @@ lib-markdown ul {
 }
 
 lib-markdown pre {
-  background-color: var(--paper-grey-100);
+  background-color: var(--mat-grey-100);
   break-inside: avoid;
   padding: 12px;
   page-break-inside: avoid;
@@ -74,7 +96,7 @@ lib-markdown table td {
 
 lib-markdown table td,
 lib-markdown table th {
-  border: 1px solid var(--paper-grey-400);
+  border: 1px solid var(--mat-grey-400);
   padding: 6px 12px;
 }
 
@@ -84,5 +106,5 @@ lib-markdown table th {
 }
 
 lib-markdown table tr:nth-child(2n) {
-  background-color: var(--paper-grey-100);
+  background-color: var(--mat-grey-100);
 }
