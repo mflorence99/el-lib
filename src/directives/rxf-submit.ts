@@ -11,13 +11,13 @@ import { FormGroup } from '@angular/forms';
 })
 
 export class RxfSubmitDirective {
-  @Input() el3270RxfSubmit: FormGroup;
+  @Input() libRxfSubmit: FormGroup;
 
   // listeners
 
   @HostListener('submit') onSubmit() {
-    const emitter = this.el3270RxfSubmit.valueChanges as EventEmitter<any>;
-    emitter.emit({ ...this.el3270RxfSubmit.value, submitted: true });
+    const emitter = this.libRxfSubmit.valueChanges as EventEmitter<any>;
+    emitter.emit({ ...this.libRxfSubmit.value, submitted: true });
   }
 
 }
