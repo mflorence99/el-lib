@@ -12,7 +12,6 @@ import { DurationPipe } from './pipes/duration';
 import { EllipsizePipe } from './pipes/ellipsize';
 import { FromUnixTimePipe } from './pipes/fromunixtime';
 import { HTMLifyPipe } from './pipes/htmlify';
-import { LifecycleComponent } from './components/lifecycle';
 import { MarkdownComponent } from './components/markdown';
 import { MarkdownPipe } from './pipes/markdown';
 import { NumeralPipe } from './pipes/numeral';
@@ -28,7 +27,6 @@ const COMPONENTS = [
   AnimatedRouterOutletComponent,
   DrawerContainerComponent,
   DrawerPanelComponent,
-  LifecycleComponent,
   MarkdownComponent
 ];
 
