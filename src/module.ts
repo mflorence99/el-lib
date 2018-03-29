@@ -16,6 +16,7 @@ import { MarkdownComponent } from './components/markdown';
 import { MarkdownPipe } from './pipes/markdown';
 import { NumeralPipe } from './pipes/numeral';
 import { RouterModule } from '@angular/router';
+import { RxfSubmitDirective } from './directives/rxf-submit';
 import { TimeAgoPipe } from './pipes/timeago';
 import { UTCFormatPipe } from './pipes/utcformat';
 
@@ -28,6 +29,10 @@ const COMPONENTS = [
   DrawerContainerComponent,
   DrawerPanelComponent,
   MarkdownComponent
+];
+
+const DIRECTIVES = [
+  RxfSubmitDirective
 ];
 
 const MODULES = [
@@ -56,11 +61,13 @@ const SERVICES = [ ];
 
   declarations: [
     ...COMPONENTS,
+    ...DIRECTIVES,
     ...PIPES
   ],
 
   exports: [
     ...COMPONENTS,
+    ...DIRECTIVES,
     ...PIPES
   ],
 
