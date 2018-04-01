@@ -10,17 +10,9 @@ export declare function debounce(func: Function, wait?: number, immediate?: bool
  */
 export declare function deepCopy<T>(obj: T): T;
 /**
- * Decode a key that was used in a route
- *
- * NOTE: we need characters that are NOT URL encoded
+ * Dump buffer
  */
-export declare function decodeRoute(key: string): string;
-/**
- * Encode a key so it can be used in a route
- *
- * NOTE: we need characters that are NOT URL encoded
- */
-export declare function encodeRoute(key: string): string;
+export declare function dump(data: Uint8Array, title: string, ebcdic?: boolean, color?: string): void;
 /**
  * Is this object empty?
  */
@@ -33,3 +25,7 @@ export declare function nextTick(f: Function): void;
  * Simple map reversal
  */
 export declare function reverseMap(obj: any): any;
+/**
+ * Convert to hex, with padding
+ */
+export declare function toHex(num: number, pad: number): string;
