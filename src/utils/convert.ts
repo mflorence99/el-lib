@@ -270,7 +270,7 @@ for (let i = 0; i < ebcdic.length; i++) {
 export function a2e(a: string): number[] {
   const e: number[] = [];
   for (let i = 0; i < a.length; i++)
-    e[i] = ascii[a.charCodeAt(i)];
+    e[i] = (a === ' ')? 0x40 : ascii[a.charCodeAt(i)];
   return e;
 }
 
