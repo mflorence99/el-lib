@@ -67,7 +67,7 @@ function dumpSlice(bytes: Uint8Array,
   for (; ix < bytes.length; ix++) {
     const byte = bytes[ix];
     hex += `${toHex(byte, 2)}`;
-    const char = ebcdic? e2a(new Uint8Array([byte])) : String.fromCharCode(byte);
+    const char = ebcdic? e2a([byte]) : String.fromCharCode(byte);
     // NOTE: use special character in string as a visual aid to counting
     str += ((char === '\u00a0') || (char === ' '))? '\u2022' : char;
     if ((ix > 0) && ((ix % 4) === 3))

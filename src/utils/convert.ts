@@ -267,8 +267,8 @@ for (let i = 0; i < ebcdic.length; i++) {
  * Convert from ASCII to EBCDIC
  */
 
-export function a2e(a: string): Uint8Array {
-  const e = new Uint8Array(a.length);
+export function a2e(a: string): number[] {
+  const e: number[] = [];
   for (let i = 0; i < a.length; i++)
     e[i] = ascii[a.charCodeAt(i)];
   return e;
@@ -278,7 +278,7 @@ export function a2e(a: string): Uint8Array {
  * Convert from EBCDIC to ASCII
  */
 
-export function e2a(e: Uint8Array): string {
+export function e2a(e: number[]): string {
   let a = '';
   for (let i = 0; i < e.length; i++) {
     if (e[i] >= 64)
