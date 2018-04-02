@@ -269,8 +269,11 @@ for (let i = 0; i < ebcdic.length; i++) {
 
 export function a2e(a: string): number[] {
   const e: number[] = [];
-  for (let i = 0; i < a.length; i++)
-    e[i] = (a[i] === ' ')? 0x40 : ascii[a.charCodeAt(i)];
+  for (let i = 0; i < a.length; i++) {
+    if ((a[i] === ' ') || (a[i] === '\u00a0'))
+      e[i] = 0x40;
+    else e[i] = ascii[a.charCodeAt(i)];
+  }
   return e;
 }
 
