@@ -96,6 +96,93 @@ export class MyComponent extends LifecycleComponent {
 
 ```
 
+### @OnChange
+
+Greatly simplifies `ngOnChanges` handling for `@Input()` fields, and is especially useful when those fields are supplied via the `async` pipe and you need to know when they've changed.
+
+```typescript
+import { OnChange } from 'ellib/lib/decorators/onchange';
+import { LifecycleComponent } from 'ellib/lib/components/lifecycle';
+
+@Component({...})
+export class MyComponent extends LifecycleComponent {
+
+  @Input() a;
+  @Input() b;
+
+  constructor(...) {
+    super();
+    // sadly if you have a ctor you have to remember to call super!
+  }
+
+  @OnChange('a', 'b')
+  myChanges(changedA: boolean, changedB: boolean) {
+    // the name of this method is arbitrary
+    // if multiple fields are coded, then it is called if EITHER changes
+    // a boolean is passed for each so you can tell what changed
+    if (this.a && this.changedA) { ... }
+  }
+
+}
+
+```
+
 ## Animations
 
+It took me ages to get these right. Maybe I'm not so smart as I think! I do know that I hate DSLs. I think they're all a fraud. They pretend to be intuitive but there's no way to discern the API without examples, so I offer mine as models to use, discard or improve on.
+
+### inOutAnimation
+
+Animates the changing contents of a container by fading in the new and fading out the old.
+
+```typescript
+import { inOutAnimation } from 'ellib/lib/animations';
+
+@Component({
+  animations: [inOutAnimation()],
+  ...
+})
+```
+
+```html
+<div [@inOut]="... expression that identifies contents ...">
+  ...
+</div>
+```
+
+### showHideAnimation
+
+Shows the contents of a container by expanding it height to fit; hides the contents by shrinking its height to zero.
+
+```typescript
+import { showHideAnimation } from 'ellib/lib/animations';
+
+@Component({
+  animations: [showHideAnimation()],
+  ...
+})
+```
+
+```html
+<div [@showHide]="expertMode? 'shown' : 'hidden'">
+  ...
+</div>
+```
+
+### routeAnimation
+
+Designed to be used by the `AnimatedRouterOutletComponent` as described above. It slides the contents of the old route out to the right, and the new in from the left.
+
 ## Utilities
+
+```typescript
+import { x } from 'ellib/lib/utils';
+
+export declare function debounce(func: Function, wait?: number, immediate?: boolean): Function;
+export declare function deepCopy<T>(obj: T): T;
+export declare function dump(data: Uint8Array, title: string, ebcdic?: boolean, color?: string): void;
+export declare function isObjectEmpty(obj: any): boolean;
+export declare function nextTick(f: Function): void;
+export declare function reverseMap(obj: any): any;
+export declare function toHex(num: number, pad: number): string;
+```
