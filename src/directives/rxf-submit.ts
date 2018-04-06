@@ -3,7 +3,7 @@ import { Directive, EventEmitter, HostListener, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 /**
- * A directive to handle form submit via calueChanges
+ * A directive to handle form submit via valueChanges
  */
 
 @Directive ({
