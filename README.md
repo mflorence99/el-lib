@@ -18,7 +18,7 @@ import { LibModule } from 'ellib/lib/module';
 
 ### AnimatedRouterOutletComponent
 
-Just in in place of `<router-outlet>` for a slide-in effect on route transitions.
+Just use in place of `<router-outlet>` for a slide-in effect on route transitions.
 
 ```html
   <lib-animated-router-outlet>
@@ -32,17 +32,14 @@ Wrap content so that drawers of related content slide out on command from the to
 ```html
 <lib-drawer-container>
 
-  <some-toolbar (click)="prefsDrawer.open()">
-  </some-toolbar>
-
+  <my-toolbar
+    (showPrefs)="prefsDrawer.open()">
+  </my-toolbar>
   ...
-
   <lib-drawer-panel
     #prefsDrawer
     position="right">
-
     ...
-
   </lib-drawer-panel>
 
 </lib-drawer-container>
@@ -86,6 +83,11 @@ export class MyComponent extends LifecycleComponent {
 
   private mySubscription: Subscription;
   private anotherSubscription: Subscription;
+
+  constructor(...) {
+    super();
+    // sadly if you have a ctor you have to remember to call super!
+  }
 
   // if non null when the component is destroyed, both will be unsubscribed
   // automatically -- no other action needed
