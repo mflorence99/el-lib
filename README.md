@@ -1,6 +1,34 @@
 # EL-Lib
 
-EL-Lib is a library of common Angular components, directives, pipes and so on that I use in my Electron projects. I don't expect anyone else will ever use this library as-is but you may find some of its ideas and techniques useful. But just in case ...
+EL-Lib is a library of common Angular components, directives, pipes and so on that I use in my Electron projects. I don't expect anyone else will ever use this library as-is but you may find some of its ideas and techniques useful.
+
+<!-- toc -->
+
+- [Installation](#installation)
+- [Components](#components)
+  * [AnimatedRouterOutletComponent](#animatedrouteroutletcomponent)
+  * [DrawerContainerComponent and DrawerPanelComponent](#drawercontainercomponent-and-drawerpanelcomponent)
+  * [Markdown Component](#markdown-component)
+- [Directives](#directives)
+- [Pipes](#pipes)
+- [Decorators](#decorators)
+  * [@AutoUnsubscribe](#autounsubscribe)
+  * [@OnChange](#onchange)
+- [Animations](#animations)
+  * [inOutAnimation](#inoutanimation)
+  * [showHideAnimation](#showhideanimation)
+  * [routeAnimation](#routeanimation)
+- [Utilities](#utilities)
+  * [API Summary](#api-summary)
+  * [debounce](#debounce)
+  * [dump](#dump)
+  * [nextTick](#nexttick)
+
+<!-- tocstop -->
+
+## Installation
+
+Just in case ...
 
 ```sh
 npm install --save ellib
@@ -175,9 +203,9 @@ Designed to be used by the `AnimatedRouterOutletComponent` as described above. I
 
 ## Utilities
 
-```typescript
-import { x } from 'ellib/lib/utils';
+### API Summary
 
+```typescript
 export declare function debounce(func: Function, wait?: number, immediate?: boolean): Function;
 export declare function deepCopy<T>(obj: T): T;
 export declare function dump(data: Uint8Array, title: string, ebcdic?: boolean, color?: string): void;
@@ -185,4 +213,36 @@ export declare function isObjectEmpty(obj: any): boolean;
 export declare function nextTick(f: Function): void;
 export declare function reverseMap(obj: any): any;
 export declare function toHex(num: number, pad: number): string;
+```
+
+### debounce
+
+Very useful when you want to debounce but using `Observable` is impossible or inconvenient.
+
+```typescript
+import { debounce } from 'ellib/lib/utils';
+
+setup: Function;
+
+this.setup = debounce((...) => {
+  ...
+}, 250);
+```
+
+### dump
+
+Produces a nice, expandable dump of large objects (like Buffers) to the console.
+
+![Dump](debug1.png)
+
+### nextTick
+
+A semantic recasting of `setTimeout(..., 0)` when used (for example) In Angular to force rendering.
+
+```typescript
+import { nextTick } from 'ellib/lib/utils';
+
+nextTick((...) => {
+  ...
+});
 ```

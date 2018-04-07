@@ -4,7 +4,9 @@
   "license": "MIT",
   "scripts": {
     "build": "ngc",
-    "ngc": "ngc"
+    "markdown-toc": "markdown-toc",
+    "ngc": "ngc",
+    "toc": "markdown-toc -i README.md"
   },
   "dependencies": {
     "@angular/animations": "^5.2.0",
@@ -30,6 +32,7 @@
     "codelyzer": "^4.0.1",
     "electron": "^1.8.4",
     "eslint": "^4.19.0",
+    "markdown-toc": "^1.2.0",
     "marked": "^0.3.19",
     "moment": "^2.21.0",
     "numeral": "^2.0.6",
