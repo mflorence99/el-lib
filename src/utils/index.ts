@@ -104,7 +104,7 @@ export function reverseMap(obj: any): any {
   return Object.keys(obj).reduce((acc, k) => {
     acc[String(obj[k])] = k;
     return acc;
-  }, {});
+  }, { });
 }
 
 /**
