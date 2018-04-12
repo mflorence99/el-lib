@@ -30,6 +30,7 @@
     "@angular/language-service": "^5.2.0",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "css-element-queries": "^1.0.2",
     "electron": "^1.8.4",
     "eslint": "^4.19.0",
     "markdown-toc": "^1.2.0",

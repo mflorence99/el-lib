@@ -15,6 +15,7 @@ import { HTMLifyPipe } from './pipes/htmlify';
 import { MarkdownComponent } from './components/markdown';
 import { MarkdownPipe } from './pipes/markdown';
 import { NumeralPipe } from './pipes/numeral';
+import { ResizedDirective } from './directives/resized';
 import { RouterModule } from '@angular/router';
 import { RxfSubmitDirective } from './directives/rxf-submit';
 import { TimeAgoPipe } from './pipes/timeago';
@@ -32,6 +33,7 @@ const COMPONENTS = [
 ];
 
 const DIRECTIVES = [
+  ResizedDirective,
   RxfSubmitDirective
 ];
 
