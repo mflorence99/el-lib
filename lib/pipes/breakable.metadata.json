@@ -1,1 +1,0 @@
-[{"__symbolic":"module","version":4,"metadata":{"BreakablePipe":{"__symbolic":"class","decorators":[{"__symbolic":"call","expression":{"__symbolic":"reference","module":"@angular/core","name":"Pipe","line":13,"character":1},"arguments":[{"name":"libBreakable"}]}],"members":{"transform":[{"__symbolic":"method"}]}}}}]

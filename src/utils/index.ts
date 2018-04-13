@@ -1,5 +1,7 @@
 import { e2a } from './convert';
 
+export * from './convert';
+
 /**
  * Common utility functions
  */
