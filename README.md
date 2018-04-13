@@ -37,7 +37,7 @@ npm install --save ellib
 ## Components
 
 ```typescript
-import { LibModule } from 'ellib/lib/module';
+import { LibModule } from 'ellib';
 
 @NgModule({
   imports: [LibModule]
@@ -102,8 +102,8 @@ Requires [`marked`](https://www.npmjs.com/package/marked) which might be loaded 
 Annotates a components so that any RxJS subscriptions are automatically unsubscribed when the component is destroyed.
 
 ```typescript
-import { AutoUnsubscribe } from 'ellib/lib/decorators/auto-unsubscribe';
-import { LifecycleComponent } from 'ellib/lib/components/lifecycle';
+import { AutoUnsubscribe } from 'ellib';
+import { LifecycleComponent } from 'ellib';
 
 @Component({...})
 @AutoUnsubscribe()
@@ -129,8 +129,8 @@ export class MyComponent extends LifecycleComponent {
 Greatly simplifies `ngOnChanges` handling for `@Input()` fields, and is especially useful when those fields are supplied via the `async` pipe and you need to know when they've changed.
 
 ```typescript
-import { OnChange } from 'ellib/lib/decorators/onchange';
-import { LifecycleComponent } from 'ellib/lib/components/lifecycle';
+import { OnChange } from 'ellib';
+import { LifecycleComponent } from 'ellib';
 
 @Component({...})
 export class MyComponent extends LifecycleComponent {
@@ -164,7 +164,7 @@ It took me ages to get these right. Maybe I'm not so smart as I think! I do know
 Animates the changing contents of a container by fading in the new and fading out the old.
 
 ```typescript
-import { inOutAnimation } from 'ellib/lib/animations';
+import { inOutAnimation } from 'ellib';
 
 @Component({
   animations: [inOutAnimation()],
@@ -183,7 +183,7 @@ import { inOutAnimation } from 'ellib/lib/animations';
 Shows the contents of a container by expanding it height to fit; hides the contents by shrinking its height to zero.
 
 ```typescript
-import { showHideAnimation } from 'ellib/lib/animations';
+import { showHideAnimation } from 'ellib';
 
 @Component({
   animations: [showHideAnimation()],
@@ -220,7 +220,7 @@ export declare function toHex(num: number, pad: number): string;
 Very useful when you want to debounce but using `Observable` is impossible or inconvenient.
 
 ```typescript
-import { debounce } from 'ellib/lib/utils';
+import { debounce } from 'ellib';
 
 setup: Function;
 
@@ -240,7 +240,7 @@ Produces a nice, expandable dump of large objects (like Buffers) to the console.
 A semantic recasting of `setTimeout(..., 0)` when used (for example) In Angular to force rendering.
 
 ```typescript
-import { nextTick } from 'ellib/lib/utils';
+import { nextTick } from 'ellib';
 
 nextTick((...) => {
   ...
