@@ -1,11 +1,13 @@
 {
   "name": "ellib",
   "version": "0.1.27",
+  "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "ngc",
+    "build": "rimraf dist && ngc",
     "markdown-toc": "markdown-toc",
     "ngc": "ngc",
+    "rimraf": "rimraf",
     "toc": "markdown-toc -i README.md"
   },
   "dependencies": {
@@ -37,6 +39,7 @@
     "electron": "^1.8.4",
     "eslint": "^4.19.0",
     "markdown-toc": "^1.2.0",
+    "rimraf": "^2.6.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"

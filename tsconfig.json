@@ -19,7 +19,7 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
-    "outDir": "./lib",
+    "outDir": "./dist",
     "pretty": true,
     "rootDir": "./src",
     "suppressImplicitAnyIndexErrors": true,
