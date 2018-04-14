@@ -1,6 +1,7 @@
 import { AfterViewInit, Directive, ElementRef, EventEmitter, Output } from '@angular/core';
 
 import { ResizeSensor } from 'css-element-queries';
+import { nextTick } from '../utils';
 
 @Directive({
   selector: '[libResized]'
@@ -18,7 +19,7 @@ export class ResizedDirective implements AfterViewInit {
   ngAfterViewInit(): void {
     // tslint:disable-next-line:no-unused-expression
     new ResizeSensor(this.element.nativeElement, x => this.onResized());
-    this.onResized();
+    nextTick(() => this.onResized());
   }
 
   private onResized(): void {
