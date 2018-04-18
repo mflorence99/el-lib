@@ -41,7 +41,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
               private injector: Injector) { }
 
   /** Close drawer */
-  close() {
+  close(): void {
     if (this.el) {
       switch (this.position) {
         case 'bottom':
@@ -63,7 +63,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   /** Open drawer */
-  open() {
+  open(): void {
     if (this.el) {
       switch (this.position) {
         case 'left':
@@ -96,12 +96,12 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
   ngOnDestroy() {
     // don't assume completely initialized
     if (this.container)
-      this.container.drawers[this.position] = null;
+      this.container.unregister(this);
   }
 
   ngOnInit() {
     this.container = this.injector.get(DrawerContainerComponent);
-    this.container.drawers[this.position] = this;
+    this.container.register(this);
   }
 
   // private methods

@@ -49,31 +49,45 @@ import { DrawerPanelComponent } from './drawer-panel';
 export class DrawerContainerComponent {
 
   drawers = {
-    bottom: null as DrawerPanelComponent,
-    left: null as DrawerPanelComponent,
-    right: null as DrawerPanelComponent,
-    top: null as DrawerPanelComponent
+    bottom: [] as DrawerPanelComponent[],
+    left: [] as DrawerPanelComponent[],
+    right: [] as DrawerPanelComponent[],
+    top: [] as DrawerPanelComponent[]
   };
 
   masked: boolean;
 
   /** Close all the drawers */
-  closeAll() {
+  closeAll(): void {
     Object.keys(this.drawers).forEach(position => {
-      const drawer = this.drawers[position];
-      if (drawer)
-        drawer.close();
+      this.drawers[position].forEach(drawer => drawer.close());
     });
   }
 
   /** A drawer has been closed */
-  closed(drawer: DrawerPanelComponent) {
+  closed(drawer: DrawerPanelComponent): void {
     this.masked = false;
   }
 
   /** A drawer has been opened */
-  opened(drawer: DrawerPanelComponent) {
+  opened(drawer: DrawerPanelComponent): void {
     this.masked = true;
+  }
+
+  /** Register a drawer */
+  register(drawer: DrawerPanelComponent): DrawerPanelComponent[] {
+    const drawers = this.unregister(drawer);
+    drawers.push(drawer);
+    return drawers;
+  }
+
+  /** De-register a drawer */
+  unregister(drawer: DrawerPanelComponent): DrawerPanelComponent[] {
+    const drawers = this.drawers[drawer.position];
+    const ix = drawers.indexOf(drawer);
+    if (ix !== -1)
+      drawers.splice(ix, 1);
+    return drawers;
   }
 
 }
