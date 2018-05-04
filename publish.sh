@@ -15,3 +15,7 @@ pushd ../el-term
 rm -rf node_modules/ellib
 npm install
 popd
+pushd ../el-file
+rm -rf node_modules/ellib
+npm install
+popd
