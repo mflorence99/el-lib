@@ -1,12 +1,12 @@
 import { animate, group, query, state, style, transition, trigger } from '@angular/animations';
 
-import { AnimationEntryMetadata } from '@angular/core';
+import { AnimationTriggerMetadata } from '@angular/animations';
 
 /**
  * Common animation functions
  */
 
-export function inOutAnimation(): AnimationEntryMetadata {
+export function inOutAnimation(): AnimationTriggerMetadata {
   return trigger('inOut', [
     transition('* => *', [
       group([
@@ -22,7 +22,7 @@ export function inOutAnimation(): AnimationEntryMetadata {
   ]);
 }
 
-export function routeAnimation(): AnimationEntryMetadata {
+export function routeAnimation(): AnimationTriggerMetadata {
   return trigger('routeAnimation', [
     transition(':enter', []),
     transition('* => *', [
@@ -52,7 +52,7 @@ export function routeAnimation(): AnimationEntryMetadata {
 }
 
 
-export function showHideAnimation(): AnimationEntryMetadata {
+export function showHideAnimation(): AnimationTriggerMetadata {
   return trigger('showHide', [
     state('shown', style({height: '*', opacity: 1})),
     state('hidden', style({height: 0, opacity: 0})),
