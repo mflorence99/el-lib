@@ -109,6 +109,10 @@ lib-markdown table tr:nth-child(2n) {
   background-color: var(--mat-grey-100);
 }
 
+.mat-button-toggle-checked {
+  color: var(--text-color);
+}
+
 .ngx-contextmenu.dropdown {
   background-color: var(--mat-grey-800);
   border: 1px solid var(--mat-grey-200);
