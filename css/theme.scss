@@ -110,7 +110,11 @@ lib-markdown table tr:nth-child(2n) {
 }
 
 .mat-button-toggle-checked {
-  color: var(--text-color);
+  color: var(--text-color) !important;
+}
+
+.mat-button-wrapper {
+  text-transform: uppercase !important;
 }
 
 .ngx-contextmenu.dropdown {
