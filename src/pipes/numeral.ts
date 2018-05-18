@@ -1,7 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-
-declare var numeral: any;
+const numeral = require('numeral');
 
 /**
  * Pipe wrapper around numeral.js
