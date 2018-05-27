@@ -1,3 +1,5 @@
+import { I18nPluralPipe, NgLocaleLocalization, formatDate as angularFormatDate } from '@angular/common';
+
 import { e2a } from './convert';
 
 export * from './convert';
@@ -86,6 +88,16 @@ function dumpSlice(bytes: Uint8Array,
 }
 
 /**
+ * Format a date
+ *
+ * TODO: localization other than en-US
+ */
+export function formatDate(date: Date,
+                           fmt: string): string {
+  return angularFormatDate(date, fmt, 'en-US');
+}
+
+/**
  * Is this object empty?
  */
 export function isObjectEmpty(obj: any): boolean {
@@ -97,6 +109,17 @@ export function isObjectEmpty(obj: any): boolean {
  */
 export function nextTick(f: Function): void {
   setTimeout(f, 0);
+}
+
+/**
+ * Pluralize a number into a string
+ *
+ * TODO: localization other than en-US
+ */
+export function pluralize(num: number,
+                          mapping: {[k: string]: string}): string {
+  return new I18nPluralPipe(new NgLocaleLocalization('en-US'))
+    .transform(num, mapping);
 }
 
 /**
