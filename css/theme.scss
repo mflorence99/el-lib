@@ -121,6 +121,24 @@ lib-markdown table tr:nth-child(2n) {
   background-color: var(--mat-grey-800);
   border: 1px solid var(--mat-grey-200);
 
+  &.form {
+    padding: 16px 0;
+    width: 300px;
+
+    a:hover {
+      background-color: inherit !important;
+    }
+
+    .mat-form-field {
+      width: 100%;
+    }
+
+  }
+
+  .hasSubMenu:before {
+    content: unset !important;
+  }
+
   ul {
     list-style-type: none;
     padding: 0;
@@ -154,7 +172,7 @@ lib-markdown table tr:nth-child(2n) {
       a {
         color: var(--mat-grey-200);
         display: flex;
-        flex-direction: colmns;
+        flex-direction: row;
         justify-content: space-between;
         padding: 6px 16px;
         text-decoration: none;
@@ -162,6 +180,11 @@ lib-markdown table tr:nth-child(2n) {
         &:hover {
           background-color: var(--accent-color);
           color: var(--mat-grey-800);
+
+          .accelerator {
+            color: var(--mat-grey-800);
+          }
+
         }
 
         .accelerator {
