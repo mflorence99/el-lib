@@ -7,6 +7,7 @@ git push origin master
 set -e
 npm version patch
 npm publish
+sleep 15s
 pushd ../el-3270
 rm -rf node_modules/ellib
 npm install
