@@ -108,7 +108,7 @@ export function isObjectEmpty(obj: any): boolean {
  * Run code on next tick
  */
 export function nextTick(f: Function): void {
-  setTimeout(f, 0);
+  setImmediate(f);
 }
 
 /**
