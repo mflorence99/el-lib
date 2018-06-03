@@ -101,7 +101,7 @@ export function formatDate(date: Date,
  * Is this object empty?
  */
 export function isObjectEmpty(obj: any): boolean {
-    return (Object.getOwnPropertyNames(obj).length === 0);
+  return (Object.getOwnPropertyNames(obj).length === 0);
 }
 
 /**
