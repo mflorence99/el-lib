@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && ngc",
+    "clean": "rm -rf node_modules && rm package-lock.json && npm install",
     "toc": "markdown-toc -i README.md"
   },
   "dependencies": {
