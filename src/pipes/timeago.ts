@@ -1,6 +1,9 @@
 import * as moment from 'moment';
 
-import { ChangeDetectorRef, OnDestroy, Pipe, PipeTransform } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
+import { OnDestroy } from '@angular/core';
+import { Pipe } from '@angular/core';
+import { PipeTransform } from '@angular/core';
 
 /**
  * Pipe wrapper around moment.js

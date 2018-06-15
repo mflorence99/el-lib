@@ -1,7 +1,10 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, Output } from '@angular/core';
-
-import { ResizeSensor } from 'css-element-queries';
+import { AfterViewInit } from '@angular/core';
+import { Directive } from '@angular/core';
+import { ElementRef } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { nextTick } from '../utils';
+import { Output } from '@angular/core';
+import { ResizeSensor } from 'css-element-queries';
 
 @Directive({
   selector: '[libResized]'

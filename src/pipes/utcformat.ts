@@ -1,6 +1,7 @@
 import * as moment from 'moment';
 
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe } from '@angular/core';
+import { PipeTransform } from '@angular/core';
 
 /**
  * Pipe wrapper around moment.js

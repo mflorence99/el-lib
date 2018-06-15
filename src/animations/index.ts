@@ -1,6 +1,11 @@
-import { animate, group, query, state, style, transition, trigger } from '@angular/animations';
-
+import { animate } from '@angular/animations';
 import { AnimationTriggerMetadata } from '@angular/animations';
+import { group } from '@angular/animations';
+import { query } from '@angular/animations';
+import { state } from '@angular/animations';
+import { style } from '@angular/animations';
+import { transition } from '@angular/animations';
+import { trigger } from '@angular/animations';
 
 /**
  * Common animation functions

@@ -1,8 +1,12 @@
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter, tap } from 'rxjs/operators';
-
+import { ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
+import { filter } from 'rxjs/operators';
+import { HostBinding } from '@angular/core';
+import { NavigationEnd } from '@angular/router';
+import { OnInit } from '@angular/core';
 import { routeAnimation } from '../animations';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 /**
  * Animate a router outlet

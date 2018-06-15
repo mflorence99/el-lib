@@ -1,6 +1,7 @@
-import { I18nPluralPipe, NgLocaleLocalization, formatDate as angularFormatDate } from '@angular/common';
-
 import { e2a } from './convert';
+import { formatDate as angularFormatDate } from '@angular/common';
+import { I18nPluralPipe } from '@angular/common';
+import { NgLocaleLocalization } from '@angular/common';
 
 export * from './convert';
 
