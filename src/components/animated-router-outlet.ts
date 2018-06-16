@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Component } from '@angular/core';
-import { filter } from 'rxjs/operators';
 import { HostBinding } from '@angular/core';
 import { NavigationEnd } from '@angular/router';
 import { OnInit } from '@angular/core';
-import { routeAnimation } from '../animations';
 import { Router } from '@angular/router';
+
+import { filter } from 'rxjs/operators';
+import { routeAnimation } from '../animations';
 import { tap } from 'rxjs/operators';
 
 /**

@@ -1,5 +1,6 @@
-import { animate } from '@angular/animations';
 import { AnimationTriggerMetadata } from '@angular/animations';
+
+import { animate } from '@angular/animations';
 import { group } from '@angular/animations';
 import { query } from '@angular/animations';
 import { state } from '@angular/animations';

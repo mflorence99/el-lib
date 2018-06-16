@@ -1,5 +1,3 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-
 import { AnimatedRouterOutletComponent } from './components/animated-router-outlet';
 import { BreakablePipe } from './pipes/breakable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,6 +12,8 @@ import { FromUnixTimePipe } from './pipes/fromunixtime';
 import { HTMLifyPipe } from './pipes/htmlify';
 import { MarkdownComponent } from './components/markdown';
 import { MarkdownPipe } from './pipes/markdown';
+import { ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { NumeralPipe } from './pipes/numeral';
 import { ResizedDirective } from './directives/resized';
 import { RouterModule } from '@angular/router';
