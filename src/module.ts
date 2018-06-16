@@ -10,6 +10,8 @@ import { DurationPipe } from './pipes/duration';
 import { EllipsizePipe } from './pipes/ellipsize';
 import { FromUnixTimePipe } from './pipes/fromunixtime';
 import { HTMLifyPipe } from './pipes/htmlify';
+import { HydratedDirective } from './directives/hydrated';
+import { HydratorDirective } from './directives/hydrator';
 import { MarkdownComponent } from './components/markdown';
 import { MarkdownPipe } from './pipes/markdown';
 import { ModuleWithProviders } from '@angular/core';
@@ -33,6 +35,8 @@ const COMPONENTS = [
 ];
 
 const DIRECTIVES = [
+  HydratedDirective,
+  HydratorDirective,
   ResizedDirective,
   RxfSubmitDirective
 ];
