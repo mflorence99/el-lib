@@ -1,12 +1,13 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { Directive } from '@angular/core';
 import { ElementRef } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { HydratorDirective } from './hydrator';
 import { Input } from '@angular/core';
 import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { Output } from '@angular/core';
 import { UUID } from 'angular2-uuid';
-import { ViewContainerRef } from '@angular/core';
 
 /**
  * A directive to mark a component as hydrateable by a hydrator
@@ -20,25 +21,25 @@ export class HydratedDirective implements Hydrateable, OnDestroy, OnInit {
 
   @Input() libHydrated = UUID.UUID();
 
-  private hydrated = false;
+  @Output() hydrated = new EventEmitter<boolean>();
+
+  private _hydrated = false;
 
   /** ctor */
   constructor(private cdf: ChangeDetectorRef,
               public element: ElementRef,
-              private hydrator: HydratorDirective,
-              private vcf: ViewContainerRef) { }
+              private hydrator: HydratorDirective) { }
 
   // property accessors / mutators
 
   get isHydrated(): boolean {
-    return this.hydrated;
+    return this._hydrated;
   }
 
   @Input()
   set isHydrated(hydrated: boolean) {
-    // https://github.com/angular/angular/issues/8277
-    const component = (<any>this.vcf)._data.componentView.component;
-    component.hydrated = this.hydrated = hydrated;
+    this.hydrated.emit(hydrated);
+    this._hydrated = hydrated;
     this.cdf.detectChanges();
   }
 

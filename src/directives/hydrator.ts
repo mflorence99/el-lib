@@ -15,6 +15,7 @@ import { OnInit } from '@angular/core';
 export class HydratorDirective implements OnInit {
 
   @Input() hydratorMargin = '0px';
+  @Input() hydratorTrace = false;
 
   private hydrateables: { [uuid: string]: Hydrateable } = {};
   private observer: IntersectionObserver;
@@ -54,10 +55,12 @@ export class HydratorDirective implements OnInit {
         const isNow = entry.isIntersecting;
         const was = hydrateable.isHydrated;
         if (was !== isNow) {
-          const uuid = hydrateable.libHydrated;
-          if (isNow)
-            console.log(`%cHydrate %c${uuid}`, 'color: #1b5e20', 'color: grey');
-          else console.log(`%cDehydrate %c${uuid}`, 'color: #b71c1c', 'color: grey');
+          if (this.hydratorTrace) {
+            const uuid = hydrateable.libHydrated;
+            if (isNow)
+              console.log(`%cHydrate %c${uuid}`, 'color: #1b5e20', 'color: grey');
+            else console.log(`%cDehydrate %c${uuid}`, 'color: #b71c1c', 'color: grey');
+          }
           hydrateable.isHydrated = isNow;
         }
       }
