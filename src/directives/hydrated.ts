@@ -22,7 +22,7 @@ export class HydratedDirective implements Hydrateable, OnDestroy, OnInit {
 
   @Output() hydrated = new EventEmitter<boolean>();
 
-  private _hydrated = false;
+  private _hydrated = true;
 
   /** ctor */
   constructor(public element: ElementRef,
