@@ -1,6 +1,5 @@
 {
   "angularCompilerOptions": {
-    "genDir": "./lib",
     "skipMetadataEmit": false,
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true

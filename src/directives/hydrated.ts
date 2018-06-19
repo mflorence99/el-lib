@@ -1,4 +1,3 @@
-import { ChangeDetectorRef } from '@angular/core';
 import { Directive } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
@@ -26,8 +25,7 @@ export class HydratedDirective implements Hydrateable, OnDestroy, OnInit {
   private _hydrated = false;
 
   /** ctor */
-  constructor(private cdf: ChangeDetectorRef,
-              public element: ElementRef,
+  constructor(public element: ElementRef,
               private hydrator: HydratorDirective) { }
 
   // property accessors / mutators
@@ -40,7 +38,6 @@ export class HydratedDirective implements Hydrateable, OnDestroy, OnInit {
   set isHydrated(hydrated: boolean) {
     this.hydrated.emit(hydrated);
     this._hydrated = hydrated;
-    this.cdf.detectChanges();
   }
 
   // lifecycle methods
