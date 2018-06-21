@@ -15,6 +15,7 @@ import { MarkdownPipe } from './pipes/markdown';
 import { NgModule } from '@angular/core';
 import { NumeralPipe } from './pipes/numeral';
 import { ResizedDirective } from './directives/resized';
+import { RouterModule } from '@angular/router';
 import { RxfSubmitDirective } from './directives/rxf-submit';
 import { TimeAgoPipe } from './pipes/timeago';
 import { UTCFormatPipe } from './pipes/utcformat';
@@ -27,7 +28,8 @@ const COMPONENTS = [
   AnimatedRouterOutletComponent,
   DrawerContainerComponent,
   DrawerPanelComponent,
-  MarkdownComponent
+  MarkdownComponent,
+  RouterModule
 ];
 
 const DIRECTIVES = [
