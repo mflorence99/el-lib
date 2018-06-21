@@ -28,8 +28,7 @@ const COMPONENTS = [
   AnimatedRouterOutletComponent,
   DrawerContainerComponent,
   DrawerPanelComponent,
-  MarkdownComponent,
-  RouterModule
+  MarkdownComponent
 ];
 
 const DIRECTIVES = [
@@ -40,7 +39,8 @@ const DIRECTIVES = [
 ];
 
 const MODULES = [
-  CommonModule
+  CommonModule,
+  RouterModule
 ];
 
 const PIPES = [
