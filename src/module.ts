@@ -1,7 +1,5 @@
 import { AnimatedRouterOutletComponent } from './components/animated-router-outlet';
 import { BreakablePipe } from './pipes/breakable';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { DateFormatPipe } from './pipes/dateformat';
 import { DrawerContainerComponent } from './components/drawer-container';
@@ -18,7 +16,6 @@ import { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { NumeralPipe } from './pipes/numeral';
 import { ResizedDirective } from './directives/resized';
-import { RouterModule } from '@angular/router';
 import { RxfSubmitDirective } from './directives/rxf-submit';
 import { TimeAgoPipe } from './pipes/timeago';
 import { UTCFormatPipe } from './pipes/utcformat';
@@ -42,10 +39,7 @@ const DIRECTIVES = [
 ];
 
 const MODULES = [
-  BrowserModule,
-  BrowserAnimationsModule,
-  CommonModule,
-  RouterModule
+  CommonModule
 ];
 
 const PIPES = [
