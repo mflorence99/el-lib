@@ -7,6 +7,10 @@ pushd ../el-3270
 rm -rf node_modules/ellib
 npm install
 popd
+pushd ../el-aws
+rm -rf node_modules/ellib
+npm install
+popd
 pushd ../el-term
 rm -rf node_modules/ellib
 npm install
