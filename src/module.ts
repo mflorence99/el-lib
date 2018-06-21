@@ -12,7 +12,6 @@ import { HydratedDirective } from './directives/hydrated';
 import { HydratorDirective } from './directives/hydrator';
 import { MarkdownComponent } from './components/markdown';
 import { MarkdownPipe } from './pipes/markdown';
-import { ModuleWithProviders } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { NumeralPipe } from './pipes/numeral';
 import { ResizedDirective } from './directives/resized';
@@ -55,8 +54,6 @@ const PIPES = [
   UTCFormatPipe
 ];
 
-const SERVICES = [ ];
-
 @NgModule({
 
   declarations: [
@@ -77,13 +74,4 @@ const SERVICES = [ ];
 
 })
 
-export class LibModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: LibModule,
-      providers: [
-        ...SERVICES
-      ]
-    };
-  }
-}
+export class LibModule { }
