@@ -1,7 +1,8 @@
-import { e2a } from './convert';
-import { formatDate as angularFormatDate } from '@angular/common';
 import { I18nPluralPipe } from '@angular/common';
 import { NgLocaleLocalization } from '@angular/common';
+
+import { e2a } from './convert';
+import { formatDate as angularFormatDate } from '@angular/common';
 
 export * from './convert';
 
@@ -103,6 +104,26 @@ export function formatDate(date: Date,
  */
 export function isObjectEmpty(obj: any): boolean {
   return (Object.getOwnPropertyNames(obj).length === 0);
+}
+
+/**
+ * Is this object equal to another?
+ * 
+ * NOTE: only a shallow compare
+ */
+export function isObjectEqual(a: any, 
+                              b: any): boolean {
+  const a_keys = Object.keys(a).sort();
+  const b_keys = Object.keys(b).sort();
+  if ((a_keys.length !== b_keys.length))
+    return false;
+  for (let ix = 0; ix < a_keys.length; ix++) {
+    const a_key = a_keys[ix];
+    const b_key = b_keys[ix];
+    if ((a_key !== b_key) || (a[a_key] !== b[b_key]))
+      return false;
+  }
+  return true;
 }
 
 /**
