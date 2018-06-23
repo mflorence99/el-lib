@@ -31,6 +31,8 @@ import { OnInit } from '@angular/core';
 })
 
 export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
+
+  @Input() context = { };
   @Input() position: 'top' | 'right' | 'bottom' | 'left' = 'left';
 
   private container: DrawerContainerComponent;
@@ -58,12 +60,13 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
         break;
       }
       // now report as closed
+      this.context = { };
       this.container.closed(this);
     }
   }
 
   /** Open drawer */
-  open(): void {
+  open(context?: any): void {
     if (this.el) {
       switch (this.position) {
         case 'left':
@@ -76,6 +79,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
         break;
       }
       // now report as open
+      this.context = context || { };
       this.container.opened(this);
     }
   }
