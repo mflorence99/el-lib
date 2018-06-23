@@ -3,11 +3,13 @@ import { ChangeDetectionStrategy } from '@angular/core';
 import { Component } from '@angular/core';
 import { DrawerContainerComponent } from './drawer-container';
 import { ElementRef } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { HostListener } from '@angular/core';
 import { Injector } from '@angular/core';
 import { Input } from '@angular/core';
 import { OnDestroy } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { Output } from '@angular/core';
 
 /**
  * lib-drawer-panel component
@@ -32,10 +34,13 @@ import { OnInit } from '@angular/core';
 
 export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
 
-  @Input() context = { };
   @Input() position: 'top' | 'right' | 'bottom' | 'left' = 'left';
 
+  @Output() closed = new EventEmitter<any>();
+  @Output() opened = new EventEmitter<any>();
+
   private container: DrawerContainerComponent;
+  private context = {};
   private el: HTMLElement;
 
   /** ctor */
@@ -60,8 +65,9 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
         break;
       }
       // now report as closed
-      this.context = { };
       this.container.closed(this);
+      this.closed.emit(this.context);
+      this.context = { };
     }
   }
 
@@ -80,6 +86,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
       }
       // now report as open
       this.context = context || { };
+      this.opened.emit(this.context);
       this.container.opened(this);
     }
   }
