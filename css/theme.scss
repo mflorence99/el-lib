@@ -144,6 +144,10 @@ lib-markdown table tr:nth-child(2n) {
   text-transform: uppercase;
 }
 
+.mat-expansion-panel {
+  background-color: var(--mat-grey-850);
+}
+
 .ngx-contextmenu.dropdown {
   background-color: var(--mat-grey-800);
   border: 1px solid var(--mat-grey-200);
