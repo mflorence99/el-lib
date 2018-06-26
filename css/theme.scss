@@ -148,6 +148,16 @@ lib-markdown table tr:nth-child(2n) {
   background-color: var(--mat-grey-850);
 }
 
+.mat-expansion-panel-header-title {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mat-radio-label {
+  align-items: flex-start !important;
+  white-space: unset !important
+}
+
 .ngx-contextmenu.dropdown {
   background-color: var(--mat-grey-800);
   border: 1px solid var(--mat-grey-200);
