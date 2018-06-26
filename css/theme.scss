@@ -159,8 +159,8 @@ lib-markdown table tr:nth-child(2n) {
 }
 
 .mat-radio-label {
-  align-items: flex-start;
-  white-space: unset
+  align-items: flex-start !important;
+  white-space: unset !important;
 }
 
 .ngx-contextmenu.dropdown {
