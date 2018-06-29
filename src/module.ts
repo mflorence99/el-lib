@@ -16,6 +16,8 @@ import { NgModule } from '@angular/core';
 import { NumeralPipe } from './pipes/numeral';
 import { ResizedDirective } from './directives/resized';
 import { RouterModule } from '@angular/router';
+import { RxfDisabledDirective } from './directives/rxf-disabled';
+import { RxfRequiredDirective } from './directives/rxf-required';
 import { RxfSubmitDirective } from './directives/rxf-submit';
 import { TimeAgoPipe } from './pipes/timeago';
 import { UTCFormatPipe } from './pipes/utcformat';
@@ -35,6 +37,8 @@ const DIRECTIVES = [
   HydratedDirective,
   HydratorDirective,
   ResizedDirective,
+  RxfDisabledDirective,
+  RxfRequiredDirective,
   RxfSubmitDirective
 ];
 
