@@ -134,6 +134,22 @@ export function nextTick(f: Function): void {
 }
 
 /**
+ * null-safe accessor 
+ * 
+ * NOTE: unnecessary if we had a ?. operator
+ */
+export function nullSafe(obj: any,
+                         expr: string): any {
+  try {
+    // TODO: this is a hack, but no worse than any alternative until TypeScript has ?.
+    return eval(`obj.${expr}`); // tslint:disable-line:no-eval
+  }
+  catch (ignored) {
+    return null;
+  }
+}
+
+/**
  * Pluralize a number into a string
  *
  * TODO: localization other than en-US
