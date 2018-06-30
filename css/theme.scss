@@ -67,6 +67,11 @@ body * {
     margin-left: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    .subtitle {
+      font-weight: normal;
+    }
+    
   }
 
 }
