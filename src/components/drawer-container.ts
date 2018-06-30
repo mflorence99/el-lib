@@ -9,7 +9,7 @@ import { DrawerPanelComponent } from './drawer-panel';
  */
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
   selector: 'lib-drawer-container',
   styles: [`
     :host {

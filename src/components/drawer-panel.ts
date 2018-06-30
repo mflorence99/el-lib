@@ -18,7 +18,7 @@ import { Output } from '@angular/core';
  */
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
   selector: 'lib-drawer-panel',
   styles: [`
     :host {
