@@ -142,7 +142,7 @@ export function nullSafe(obj: any,
                          expr: string): any {
   try {
     // TODO: this is a hack, but no worse than any alternative until TypeScript has ?.
-    return eval(`obj.${expr}`); // tslint:disable-line:no-eval
+    return eval(`obj.${expr}`) || null; // tslint:disable-line:no-eval
   }
   catch (ignored) {
     return null;
