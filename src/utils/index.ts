@@ -12,6 +12,8 @@ export * from './convert';
 
 /**
  * Convert a base64 string to a Buffer
+ * 
+ * @see https://gist.github.com/borismus/1032746
  */
 export function base64ToBuffer(base64: string): Buffer {
   const raw = atob(base64);
