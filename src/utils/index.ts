@@ -11,6 +11,17 @@ export * from './convert';
  */
 
 /**
+ * Convert a base64 string to a Buffer
+ */
+export function base64ToBuffer(base64: string): Buffer {
+  const raw = atob(base64);
+  const array = new Uint8Array(new ArrayBuffer(raw.length));
+  for (let ix = 0; ix < raw.length; ix++)
+    array[ix] = raw.charCodeAt(ix);
+  return Buffer.from(array.buffer);
+}
+
+/**
  * Simple debounce; useful when no stream is at play
  */
 export function debounce(func: Function,
