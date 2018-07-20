@@ -40,7 +40,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
   @Output() opened = new EventEmitter<any>();
 
   private container: DrawerContainerComponent;
-  private context = {};
+  private context = { };
   private el: HTMLElement;
 
   /** ctor */

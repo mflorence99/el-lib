@@ -17,7 +17,7 @@ export class HydratorDirective implements OnInit {
   @Input() hydratorMargin = '0px';
   @Input() hydratorTrace = false;
 
-  private hydrateables: { [uuid: string]: Hydrateable } = {};
+  private hydrateables: { [uuid: string]: Hydrateable } = { };
   private observer: IntersectionObserver;
 
   /** ctor */

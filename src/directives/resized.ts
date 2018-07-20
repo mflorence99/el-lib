@@ -56,5 +56,5 @@ export class ResizedEvent {
     readonly newHeight: number,
     readonly oldWidth: number,
     readonly oldHeight: number
-  ) {}
+  ) { }
 }
