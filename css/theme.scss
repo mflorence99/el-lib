@@ -90,6 +90,14 @@ html {
   width: 100%;
 }
 
+input {
+  background-color: transparent;
+  border: 0;
+  color: var(--text-color);
+  outline: 0;
+  width: 100%;
+}
+
 lib-markdown blockquote {
   border-left: 5px solid var(--mat-grey-400);
   font-weight: 200;
@@ -254,6 +262,20 @@ lib-markdown table tr:nth-child(2n) {
 
     }
 
+  }
+
+}
+
+select {
+  background-color: transparent;
+  border: 0;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 0.8rem;
+  outline: 0;
+
+  option {
+    background-color: var(--mat-grey-800);
   }
 
 }
