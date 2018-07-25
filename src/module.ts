@@ -10,6 +10,7 @@ import { FromUnixTimePipe } from './pipes/fromunixtime';
 import { HTMLifyPipe } from './pipes/htmlify';
 import { HydratedDirective } from './directives/hydrated';
 import { HydratorDirective } from './directives/hydrator';
+import { LinkifyPipe } from './pipes/linkify';
 import { MarkdownComponent } from './components/markdown';
 import { MarkdownPipe } from './pipes/markdown';
 import { NgModule } from '@angular/core';
@@ -54,6 +55,7 @@ const PIPES = [
   EllipsizePipe,
   FromUnixTimePipe,
   HTMLifyPipe,
+  LinkifyPipe,
   MarkdownPipe,
   NumeralPipe,
   TimeAgoPipe,
