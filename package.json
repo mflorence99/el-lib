@@ -41,6 +41,6 @@
     "rimraf": "2",
     "ts-node": "6",
     "tslint": "5",
-    "typescript": "~2.7"
+    "typescript": "2"
   }
 }
