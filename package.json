@@ -9,14 +9,14 @@
     "toc": "markdown-toc -i README.md"
   },
   "dependencies": {
-    "@angular/animations": "6",
-    "@angular/common": "6",
-    "@angular/compiler": "6",
-    "@angular/core": "6",
-    "@angular/forms": "6",
-    "@angular/platform-browser": "6",
-    "@angular/platform-browser-dynamic": "6",
-    "@angular/router": "6",
+    "@angular/animations": "~6.0",
+    "@angular/common": "~6.0",
+    "@angular/compiler": "~6.0",
+    "@angular/core": "~6.0",
+    "@angular/forms": "~6.0",
+    "@angular/platform-browser": "~6.0",
+    "@angular/platform-browser-dynamic": "~6.0",
+    "@angular/router": "~6.0",
     "@fortawesome/angular-fontawesome": "0.1.1",
     "@fortawesome/fontawesome-svg-core": "1",
     "@fortawesome/free-brands-svg-icons": "5",
@@ -34,9 +34,9 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular/cli": "6",
-    "@angular/compiler-cli": "6",
-    "@angular/language-service": "6",
+    "@angular/cli": "~6.0",
+    "@angular/compiler-cli": "~6.0",
+    "@angular/language-service": "~6.0",
     "@types/node": "10",
     "codelyzer": "4",
     "electron": "2",
@@ -45,6 +45,6 @@
     "rimraf": "2",
     "ts-node": "6",
     "tslint": "5",
-    "typescript": "2"
+    "typescript": "~2.7.2"
   }
 }
