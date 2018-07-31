@@ -35,19 +35,18 @@ import { timer } from 'rxjs';
       opacity: 0.5;
       position: fixed;
       top: 50%;
+    }
 
-      &:hover {
-        opacity: 0.9;
-      }
+    .scroller:hover {
+      opacity: 0.9;
+    }
 
-      &.left {
-        left: 16px;
-      }
+    .scroller.left {
+      left: 16px;
+    }
 
-      &.right {
-        right: 16px;
-      }
-
+    .scroller.right {
+      right: 16px;
     }
   `],
   template: `
