@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { RxfDisabledDirective } from './directives/rxf-disabled';
 import { RxfRequiredDirective } from './directives/rxf-required';
 import { RxfSubmitDirective } from './directives/rxf-submit';
+import { ScrollContainerComponent } from './components/scroll-container';
 import { TimeAgoPipe } from './pipes/timeago';
 import { UTCFormatPipe } from './pipes/utcformat';
 
@@ -31,7 +32,8 @@ const COMPONENTS = [
   AnimatedRouterOutletComponent,
   DrawerContainerComponent,
   DrawerPanelComponent,
-  MarkdownComponent
+  MarkdownComponent,
+  ScrollContainerComponent
 ];
 
 const DIRECTIVES = [
