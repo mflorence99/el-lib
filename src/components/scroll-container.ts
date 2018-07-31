@@ -94,14 +94,12 @@ export class ScrollContainerComponent {
   /** Can we scroll left? */
   canScrollLeft(): boolean {
     const el = this.element.nativeElement;
-    console.log(`canScrollLeft ${(el.scrollWidth - el.scrollLeft - 1) > el.clientWidth} client=[${el.clientLeft},${el.clientWidth}] scroll=[${el.scrollLeft},${el.scrollWidth}]`);
     return (el.scrollWidth - el.scrollLeft - 1) > el.clientWidth;
   }
 
   /** Can we scroll right? */
   canScrollRight(): boolean {
     const el = this.element.nativeElement;
-    console.log(`canScrollRight ${el.scrollLeft > el.clientLeft} client=[${el.clientLeft},${el.clientWidth}] scroll=[${el.scrollLeft},${el.scrollWidth}]`);
     return el.scrollLeft > el.clientLeft;
   }
 
@@ -126,9 +124,6 @@ export class ScrollContainerComponent {
                  dir: number): void {
     const step = Math.round(cx / this.numScrollSteps);
     const rem = cx - (step * this.numScrollSteps);
-
-    console.log(`scroll${dir > 0? 'Left' : 'Right'} ${cx}/${step}/${rem}  client=[${el.clientLeft},${el.clientWidth}] scroll=[${el.scrollLeft},${el.scrollWidth}]`);
-
     timer(0, this.scrollDuration / this.numScrollSteps)
       .pipe(take(this.numScrollSteps))
       .subscribe((ix: number) => {
