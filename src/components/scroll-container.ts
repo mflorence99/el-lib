@@ -109,14 +109,14 @@ export class ScrollContainerComponent {
   /** Scroll left */
   scrollLeft(): void {
     const el = this.element.nativeElement;
-    const cx = Math.min(el.clientWidth / 2, el.scrollLeft);
+    const cx = Math.min(el.clientWidth / 2, el.scrollWidth - el.clientWidth - el.scrollLeft);
     this.scroll(el, cx, +1);
   }
 
   /** Scroll right */
   scrollRight(): void {
     const el = this.element.nativeElement;
-    const cx = Math.min(el.clientWidth / 2, el.scrollWidth - el.clientWidth - el.scrollLeft);
+    const cx = Math.min(el.clientWidth / 2, el.scrollLeft);
     this.scroll(el, cx, -1);
   }
 
