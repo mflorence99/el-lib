@@ -133,7 +133,7 @@ export class ScrollContainerComponent {
       .pipe(take(this.numScrollSteps))
       .subscribe((ix: number) => {
         const dx = (step + ((ix === 0) ? rem : 0)) * dir;
-        el.scrollLeft += step + ((ix === 0) ? rem : 0);
+        el.scrollLeft += dx;
         this.onScroll.emit(dx);
       });
   }
