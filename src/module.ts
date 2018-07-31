@@ -6,6 +6,7 @@ import { DrawerContainerComponent } from './components/drawer-container';
 import { DrawerPanelComponent } from './components/drawer-panel';
 import { DurationPipe } from './pipes/duration';
 import { EllipsizePipe } from './pipes/ellipsize';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FromUnixTimePipe } from './pipes/fromunixtime';
 import { HTMLifyPipe } from './pipes/htmlify';
 import { HydratedDirective } from './directives/hydrated';
@@ -47,6 +48,7 @@ const DIRECTIVES = [
 
 const MODULES = [
   CommonModule,
+  FontAwesomeModule,
   RouterModule
 ];
 
