@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy } from '@angular/core';
 import { Component } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { HostListener } from '@angular/core';
 import { Input } from '@angular/core';
 import { Output } from '@angular/core';
 
@@ -54,7 +55,8 @@ import { timer } from 'rxjs';
       <ng-content></ng-content>
 
       <div
-        (click)="scrollLeft()"
+        (click)="doScrollLeft()"
+        *ngIf="canScrollLeft()"
         class="left scroller">
 
         <fa-icon
@@ -65,7 +67,8 @@ import { timer } from 'rxjs';
       </div>
 
       <div
-        (click)="scrollRight()"
+        (click)="doScrollRight()"
+        *ngIf="canScrollRight()"
         class="right scroller">
 
         <fa-icon
@@ -84,46 +87,65 @@ export class ScrollContainerComponent {
   @Input() numScrollSteps = 10;
   @Input() scrollDuration = 250;
 
+  @HostListener('mouseover') onMouseOver() {
+    this.dimensions();
+  }
+
+  @HostListener('window:resize') onResize() {
+    this.dimensions();
+  }
+
   @Output() onScroll = new EventEmitter<number>();
+
+  private clientLeft;
+  private clientWidth;
+
+  private scrollLeft;
+  private scrollWidth;
 
   /** ctor */
   constructor(private element: ElementRef) { }
 
   /** Can we scroll left? */
   canScrollLeft(): boolean {
-    const el = this.element.nativeElement;
-    return (el.scrollWidth - el.scrollLeft - 1) > el.clientWidth;
+    return (this.scrollWidth - this.scrollLeft - 1) > this.clientWidth;
   }
 
   /** Can we scroll right? */
   canScrollRight(): boolean {
-    const el = this.element.nativeElement;
-    return el.scrollLeft > el.clientLeft;
+    return this.scrollLeft > this.clientLeft;
   }
 
   /** Scroll left */
-  scrollLeft(): void {
+  doScrollLeft(): void {
     if (this.canScrollLeft()) {
-      const el = this.element.nativeElement;
-      const cx = Math.min(el.clientWidth / 2, el.scrollWidth - el.clientWidth - el.scrollLeft);
-      this.scroll(el, cx, +1);
+      const cx = Math.min(this.clientWidth / 2, 
+                          this.scrollWidth - this.clientWidth - this.scrollLeft);
+      this.scroll(cx, +1);
     }
   }
 
   /** Scroll right */
-  scrollRight(): void {
+  doScrollRight(): void {
     if (this.canScrollRight()) {
-      const el = this.element.nativeElement;
-      const cx = Math.min(el.clientWidth / 2, el.scrollLeft);
-      this.scroll(el, cx, -1);
+      const cx = Math.min(this.clientWidth / 2, this.scrollLeft);
+      this.scroll(cx, -1);
     }
   }
 
   // private methods
 
-  private scroll(el: HTMLElement,
-                 cx: number,
+  private dimensions(): void {
+    const el = this.element.nativeElement;
+    this.clientLeft = el.clientLeft;
+    this.clientWidth = el.clientWidth;
+    this.scrollLeft = el.scrollLeft;
+    this.scrollWidth = el.scrollWidth;
+  }
+
+  private scroll(cx: number,
                  dir: number): void {
+    const el = this.element.nativeElement;
     const step = Math.round(cx / this.numScrollSteps);
     const rem = cx - (step * this.numScrollSteps);
     timer(0, this.scrollDuration / this.numScrollSteps)
@@ -132,7 +154,7 @@ export class ScrollContainerComponent {
         const dx = (step + ((ix === 0) ? rem : 0)) * dir;
         el.scrollLeft += dx;
         this.onScroll.emit(dx);
-      });
+      }, undefined, () => this.dimensions());
   }
 
 }
