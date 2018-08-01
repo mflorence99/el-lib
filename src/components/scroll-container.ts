@@ -55,7 +55,6 @@ import { timer } from 'rxjs';
 
       <div
         (click)="scrollLeft()"
-        *ngIf="canScrollLeft()" 
         class="left scroller">
 
         <fa-icon
@@ -67,7 +66,6 @@ import { timer } from 'rxjs';
 
       <div
         (click)="scrollRight()"
-        *ngIf="canScrollRight()" 
         class="right scroller">
 
         <fa-icon
@@ -105,16 +103,20 @@ export class ScrollContainerComponent {
 
   /** Scroll left */
   scrollLeft(): void {
-    const el = this.element.nativeElement;
-    const cx = Math.min(el.clientWidth / 2, el.scrollWidth - el.clientWidth - el.scrollLeft);
-    this.scroll(el, cx, +1);
+    if (this.canScrollLeft()) {
+      const el = this.element.nativeElement;
+      const cx = Math.min(el.clientWidth / 2, el.scrollWidth - el.clientWidth - el.scrollLeft);
+      this.scroll(el, cx, +1);
+    }
   }
 
   /** Scroll right */
   scrollRight(): void {
-    const el = this.element.nativeElement;
-    const cx = Math.min(el.clientWidth / 2, el.scrollLeft);
-    this.scroll(el, cx, -1);
+    if (this.canScrollRight()) {
+      const el = this.element.nativeElement;
+      const cx = Math.min(el.clientWidth / 2, el.scrollLeft);
+      this.scroll(el, cx, -1);
+    }
   }
 
   // private methods
