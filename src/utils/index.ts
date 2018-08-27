@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { I18nPluralPipe } from '@angular/common';
 import { NgLocaleLocalization } from '@angular/common';
 
@@ -160,6 +161,21 @@ export function nullSafe(obj: any,
   catch (ignored) {
     return null;
   }
+}
+
+/**
+ * Parse initial search parameters
+ */
+export function parseInitialSearchParams(): HttpParams {
+  let params = new HttpParams();
+  if (location.search.length > 1) {
+    const raw = location.search.substring(1).split('&');
+    raw.forEach(param => {
+      const [k, v] = param.split('=');
+      params = params.set(k, v);
+    });
+  }
+  return params;
 }
 
 /**
