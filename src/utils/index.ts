@@ -144,7 +144,9 @@ export function isObjectEqual(a: any,
  * Run code on next tick
  */
 export function nextTick(f: Function): void {
-  setImmediate(f);
+  if (setImmediate)
+    setImmediate(f);
+  else setTimeout(f, 0);
 }
 
 /**
