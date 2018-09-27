@@ -24,7 +24,7 @@ import { Output } from '@angular/core';
     :host {
       display: block;
       position: absolute;
-      transition: transform 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
       transform: translate(-10000px, -10000px);
       z-index: 100;
     }
@@ -34,7 +34,7 @@ import { Output } from '@angular/core';
 
 export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
 
-  @Input() position: 'top' | 'right' | 'bottom' | 'left' = 'left';
+  @Input() position: 'left' | 'right' | 'top' | 'bottom' | 'center' = 'left';
 
   @Output() closed = new EventEmitter<any>();
   @Output() opened = new EventEmitter<any>();
@@ -51,18 +51,22 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
   close(): void {
     if (this.el) {
       switch (this.position) {
-        case 'bottom':
-          this.el.style.transform = `translateY(${this.el.offsetHeight}px)`;
-        break;
         case 'left':
           this.el.style.transform = `translateX(-${this.el.offsetWidth}px)`;
-        break;
+          break;
         case 'right':
           this.el.style.transform = `translateX(${this.el.offsetWidth}px)`;
-        break;
+          break;
         case 'top':
           this.el.style.transform = `translateY(-${this.el.offsetHeight}px)`;
-        break;
+          break;
+        case 'bottom':
+          this.el.style.transform = `translateY(${this.el.offsetHeight}px)`;
+          break;
+        case 'center':
+          this.el.style.opacity = '0';
+          this.el.style.zIndex = '-100';
+          break;
       }
       // now report as closed
       this.container.closed(this);
@@ -78,11 +82,15 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
         case 'left':
         case 'right':
           this.el.style.transform = `translateX(0px)`;
-        break;
+          break;
         case 'top':
         case 'bottom':
           this.el.style.transform = `translateY(0px)`;
-        break;
+          break;
+        case 'center':
+          this.el.style.opacity = '1';
+          this.el.style.zIndex = '100';
+          break;
       }
       // now report as open
       this.context = context || { };
@@ -119,11 +127,6 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
 
   private setup () {
     switch (this.position) {
-      case 'bottom':
-        this.el.style.left = `${(this.el.parentElement.offsetWidth - this.el.offsetWidth) / 2}px`;
-        this.el.style.bottom = '0';
-        this.el.style.transform = `translateY(${this.el.offsetHeight}px)`;
-        break;
       case 'left':
         this.el.style.height = '100%';
         this.el.style.left = '0';
@@ -140,6 +143,17 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
         this.el.style.left = `${(this.el.parentElement.offsetWidth - this.el.offsetWidth) / 2}px`;
         this.el.style.top = '0';
         this.el.style.transform = `translateY(-${this.el.offsetHeight}px)`;
+        break;
+      case 'bottom':
+        this.el.style.left = `${(this.el.parentElement.offsetWidth - this.el.offsetWidth) / 2}px`;
+        this.el.style.bottom = '0';
+        this.el.style.transform = `translateY(${this.el.offsetHeight}px)`;
+        break;
+      case 'center':
+        this.el.style.left = `${(this.el.parentElement.offsetWidth - this.el.offsetWidth) / 2}px`;
+        this.el.style.top = `${(this.el.parentElement.offsetHeight - this.el.offsetHeight) / 2}px`;
+        this.el.style.opacity = '0';
+        this.el.style.zIndex = '-100';
         break;
     }
   }
