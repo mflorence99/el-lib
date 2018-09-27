@@ -153,6 +153,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
         this.el.style.left = `${(this.el.parentElement.offsetWidth - this.el.offsetWidth) / 2}px`;
         this.el.style.top = `${(this.el.parentElement.offsetHeight - this.el.offsetHeight) / 2}px`;
         this.el.style.opacity = '0';
+        this.el.style.transform = 'translate(0, 0)';
         this.el.style.zIndex = '-100';
         break;
     }
