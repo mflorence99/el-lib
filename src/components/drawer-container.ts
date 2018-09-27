@@ -49,10 +49,11 @@ import { DrawerPanelComponent } from './drawer-panel';
 export class DrawerContainerComponent {
 
   drawers = {
-    bottom: [] as DrawerPanelComponent[],
     left: [] as DrawerPanelComponent[],
     right: [] as DrawerPanelComponent[],
-    top: [] as DrawerPanelComponent[]
+    top: [] as DrawerPanelComponent[],
+    bottom: [] as DrawerPanelComponent[],
+    center: [] as DrawerPanelComponent[]
   };
 
   masked: boolean;
