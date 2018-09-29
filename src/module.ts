@@ -2,6 +2,7 @@ import { AnimatedRouterOutletComponent } from './components/animated-router-outl
 import { BreakablePipe } from './pipes/breakable';
 import { CommonModule } from '@angular/common';
 import { DateFormatPipe } from './pipes/dateformat';
+import { DebouncePipe } from './pipes/debounce';
 import { DrawerContainerComponent } from './components/drawer-container';
 import { DrawerPanelComponent } from './components/drawer-panel';
 import { DurationPipe } from './pipes/duration';
@@ -55,6 +56,7 @@ const MODULES = [
 const PIPES = [
   BreakablePipe,
   DateFormatPipe,
+  DebouncePipe,
   DurationPipe,
   EllipsizePipe,
   FromUnixTimePipe,
