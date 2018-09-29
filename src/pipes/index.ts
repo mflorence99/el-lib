@@ -1,5 +1,6 @@
 export * from './breakable';
 export * from './dateformat';
+export * from './debounce';
 export * from './duration';
 export * from './ellipsize';
 export * from './fromunixtime';
