@@ -8,7 +8,7 @@ import { debounceTime } from 'rxjs/operators';
  * Debounces an Observable, as into the async pipe
  */
 
-@Pipe({ name: 'libDebounce', pure: true })
+@Pipe({ name: 'libDebounce' })
 export class DebouncePipe implements PipeTransform {
 
   transform(obs: Observable<any>,
