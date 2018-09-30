@@ -35,7 +35,7 @@ import { timer } from 'rxjs';
       cursor: pointer;
       opacity: 0.5;
       position: fixed;
-      top: 50%;
+      transition: opacity 0.25s ease-in-out;
     }
 
     .scroller:hover {
@@ -44,10 +44,22 @@ import { timer } from 'rxjs';
 
     .scroller.left {
       left: 16px;
+      top: calc(50% - 32px);
     }
 
     .scroller.right {
       right: 16px;
+      top: calc(50% - 32px);
+    }
+
+    .scroller.up {
+      left: calc(50% - 32px);
+      top: 32px;
+    }
+
+    .scroller.down {
+      left: calc(50% - 32px);
+      bottom: 32px;
     }
   `],
   template: `
@@ -78,42 +90,80 @@ import { timer } from 'rxjs';
 
       </div>
 
+      <div
+        (click)="doScrollUp()"
+        *ngIf="canScrollUp()"
+        class="up scroller">
+
+        <fa-icon
+          [icon]="['fas', 'chevron-circle-up']"
+          size="4x">
+        </fa-icon>
+
+      </div>
+
+      <div
+        (click)="doScrollDown()"
+        *ngIf="canScrollDown()"
+        class="down scroller">
+
+        <fa-icon
+          [icon]="['fas', 'chevron-circle-down']"
+          size="4x">
+        </fa-icon>
+
+      </div>
+
     </div>
   `
 })
 
 export class ScrollContainerComponent {
 
+  @Input() showScrollLeft: boolean;
+  @Input() showScrollRight: boolean;
+
+  @Input() showScrollUp: boolean;
+  @Input() showScrollDown: boolean;
+
   @Input() numScrollSteps = 10;
   @Input() scrollDuration = 250;
-
-  @HostListener('mouseover') onMouseOver() {
-    this.dimensions();
-  }
-
-  @HostListener('window:resize') onResize() {
-    this.dimensions();
-  }
 
   @Output() onScroll = new EventEmitter<number>();
 
   private clientLeft;
   private clientWidth;
 
+  private clientTop;
+  private clientHeight;
+
   private scrollLeft;
   private scrollWidth;
+
+  private scrollTop;
+  private scrollHeight;
 
   /** ctor */
   constructor(private element: ElementRef) { }
 
   /** Can we scroll left? */
   canScrollLeft(): boolean {
-    return (this.scrollWidth - this.scrollLeft - 1) > this.clientWidth;
+    return this.showScrollLeft && ((this.scrollWidth - this.scrollLeft - 1) > this.clientWidth);
   }
 
   /** Can we scroll right? */
   canScrollRight(): boolean {
-    return this.scrollLeft > this.clientLeft;
+    return this.showScrollRight && (this.scrollLeft > this.clientLeft);
+  }
+
+  /** Can we scroll up? */
+  canScrollUp(): boolean {
+    return this.showScrollUp && (this.scrollTop > this.clientTop);
+  }
+
+  /** Can we scroll down? */
+  canScrollDown(): boolean {
+    return this.showScrollDown && ((this.scrollHeight - this.scrollTop - 1) > this.clientHeight);
   }
 
   /** Scroll left */
@@ -121,7 +171,7 @@ export class ScrollContainerComponent {
     if (this.canScrollLeft()) {
       const cx = Math.min(this.clientWidth / 2, 
                           this.scrollWidth - this.clientWidth - this.scrollLeft);
-      this.scroll(cx, +1);
+      this.scroll(cx, 'horz', +1);
     }
   }
 
@@ -129,8 +179,39 @@ export class ScrollContainerComponent {
   doScrollRight(): void {
     if (this.canScrollRight()) {
       const cx = Math.min(this.clientWidth / 2, this.scrollLeft);
-      this.scroll(cx, -1);
+      this.scroll(cx, 'horz', -1);
     }
+  }
+
+  /** Scroll up */
+  doScrollUp(): void {
+    if (this.canScrollUp()) {
+      const cx = Math.min(this.clientHeight / 2, this.scrollTop);
+      this.scroll(cx, 'vert', -1);
+    }
+  }
+
+  /** Scroll down */
+  doScrollDown(): void {
+    if (this.canScrollDown()) {
+      const cx = Math.min(this.clientHeight / 2,
+        this.scrollHeight - this.clientHeight - this.scrollTop);
+      this.scroll(cx, 'vert', +1);
+    }
+  }
+
+  // listeners
+
+  @HostListener('mouseover') onMouseOver() {
+    this.dimensions();
+  }
+
+  @HostListener('scroll') onScroller() {
+    this.dimensions();
+  }
+
+  @HostListener('window:resize') onResize() {
+    this.dimensions();
   }
 
   // private methods
@@ -139,11 +220,16 @@ export class ScrollContainerComponent {
     const el = this.element.nativeElement;
     this.clientLeft = el.clientLeft;
     this.clientWidth = el.clientWidth;
+    this.clientTop = el.clientTop;
+    this.clientHeight = el.clientHeight;
     this.scrollLeft = el.scrollLeft;
     this.scrollWidth = el.scrollWidth;
+    this.scrollTop = el.scrollTop;
+    this.scrollHeight = el.scrollHeight;
   }
 
   private scroll(cx: number,
+                 axis: 'horz' | 'vert',
                  dir: number): void {
     const el = this.element.nativeElement;
     const step = Math.round(cx / this.numScrollSteps);
@@ -152,7 +238,9 @@ export class ScrollContainerComponent {
       .pipe(take(this.numScrollSteps))
       .subscribe((ix: number) => {
         const dx = (step + ((ix === 0) ? rem : 0)) * dir;
-        el.scrollLeft += dx;
+        if (axis === 'horz')
+          el.scrollLeft += dx;
+        else el.scrollTop += dx;
         this.onScroll.emit(dx);
       }, undefined, () => this.dimensions());
   }
