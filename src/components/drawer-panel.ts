@@ -42,6 +42,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
   private container: DrawerContainerComponent;
   private context = { };
   private el: HTMLElement;
+  private isOpen: boolean;
 
   /** ctor */
   constructor(private element: ElementRef,
@@ -69,6 +70,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
           break;
       }
       // now report as closed
+      this.isOpen = false;
       this.container.closed(this);
       this.closed.emit(this.context);
       this.context = { };
@@ -93,6 +95,7 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
           break;
       }
       // now report as open
+      this.isOpen = true;
       this.context = context || { };
       this.opened.emit(this.context);
       this.container.opened(this);
@@ -102,14 +105,17 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
   // listeners
 
   @HostListener('window:resize') onResize() {
-    this.setup();
+    this.resize();
+    if (!this.isOpen)
+      this.reposition();
   }
 
   // lifecycle methods
 
   ngAfterViewInit() {
     this.el = this.element.nativeElement;
-    this.setup();
+    this.resize();
+    this.reposition();
   }
 
   ngOnDestroy() {
@@ -125,36 +131,51 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
 
   // private methods
 
-  private setup () {
+  private reposition() {
+    switch (this.position) {
+      case 'left':
+        this.el.style.transform = `translateX(-${this.el.offsetWidth}px)`;
+        break;
+      case 'right':
+        this.el.style.transform = `translateX(${this.el.offsetWidth}px)`;
+        break;
+      case 'top':
+        this.el.style.transform = `translateY(-${this.el.offsetHeight}px)`;
+        break;
+      case 'bottom':
+        this.el.style.transform = `translateY(${this.el.offsetHeight}px)`;
+        break;
+      case 'center':
+        this.el.style.opacity = '0';
+        this.el.style.transform = 'translate(0, 0)';
+        this.el.style.zIndex = '-100';
+        break;
+    }
+  }
+
+  private resize() {
     switch (this.position) {
       case 'left':
         this.el.style.height = '100%';
         this.el.style.left = '0';
         this.el.style.top = '0';
-        this.el.style.transform = `translateX(-${this.el.offsetWidth}px)`;
         break;
       case 'right':
         this.el.style.height = '100%';
         this.el.style.right = '0';
         this.el.style.top = '0';
-        this.el.style.transform = `translateX(${this.el.offsetWidth}px)`;
         break;
       case 'top':
         this.el.style.left = `${(this.el.parentElement.offsetWidth - this.el.offsetWidth) / 2}px`;
         this.el.style.top = '0';
-        this.el.style.transform = `translateY(-${this.el.offsetHeight}px)`;
         break;
       case 'bottom':
         this.el.style.left = `${(this.el.parentElement.offsetWidth - this.el.offsetWidth) / 2}px`;
         this.el.style.bottom = '0';
-        this.el.style.transform = `translateY(${this.el.offsetHeight}px)`;
         break;
       case 'center':
         this.el.style.left = `${(this.el.parentElement.offsetWidth - this.el.offsetWidth) / 2}px`;
         this.el.style.top = `${(this.el.parentElement.offsetHeight - this.el.offsetHeight) / 2}px`;
-        this.el.style.opacity = '0';
-        this.el.style.transform = 'translate(0, 0)';
-        this.el.style.zIndex = '-100';
         break;
     }
   }
