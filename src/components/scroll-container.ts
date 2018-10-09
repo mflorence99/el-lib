@@ -36,6 +36,7 @@ import { timer } from 'rxjs';
       opacity: 0.5;
       position: fixed;
       transition: opacity 0.25s ease-in-out;
+      z-index: 65535;
     }
 
     .scroller:hover {
