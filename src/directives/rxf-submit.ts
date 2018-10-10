@@ -19,8 +19,10 @@ export class RxfSubmitDirective {
   // listeners
 
   @HostListener('submit') onSubmit() {
-    const emitter = this.libRxfSubmit.valueChanges as EventEmitter<any>;
-    emitter.emit({ ...this.libRxfSubmit.value, submitted: true });
+    if (this.libRxfSubmit.valid) {
+      const emitter = this.libRxfSubmit.valueChanges as EventEmitter<any>;
+      emitter.emit({ ...this.libRxfSubmit.value, submitted: true });
+    }
   }
 
 }
