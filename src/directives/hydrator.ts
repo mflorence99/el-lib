@@ -31,8 +31,12 @@ export class HydratorDirective implements OnInit {
 
   /** Unregister hydrateable component */
   unregisterHydrateable(hydrateable: Hydrateable): void {
-    this.observer.unobserve(hydrateable.element.nativeElement);
-    delete this.hydrateables[hydrateable.libHydrated];
+    // NOTE: this can fail depending on the order in which things are destroyed
+    try {
+      this.observer.unobserve(hydrateable.element.nativeElement);
+      delete this.hydrateables[hydrateable.libHydrated];
+    }
+    catch (ignored) { }
   }
 
   // lifecycle methods
