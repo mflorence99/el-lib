@@ -1,6 +1,6 @@
 {
   "name": "ellib",
-  "version": "0.1.113",
+  "version": "0.1.114",
   "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
