@@ -22,7 +22,7 @@ export class ResizedDirective implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // tslint:disable-next-line:no-unused-expression
-    new ResizeSensor(this.element.nativeElement, x => this.onResized());
+    new ResizeSensor(this.element.nativeElement, () => this.onResized());
     nextTick(() => this.onResized());
   }
 
