@@ -80,7 +80,7 @@ export class AnimatedRouterOutletComponent {
   routeIdx: number;
 
   @HostBinding('@routeAnimation') get trigger() {
-    return this.routeIdx || Math.random();
+    return this.routeIdx;
   }
 
   /** ctor */
@@ -99,6 +99,8 @@ export class AnimatedRouterOutletComponent {
     // extract route index
     if (route)
       this.routeIdx = route.snapshot.data.routeIdx;
+    if (!this.routeIdx)
+      this.routeIdx = Math.random();
   }
 
 }
