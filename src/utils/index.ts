@@ -31,12 +31,12 @@ export function debounce(func: Function,
                          wait = 0,
                          immediate = false): Function {
   let timeout = null;
-  return function() {
+  return function () {
     const context = this;
     const args = arguments;
     const callNow = immediate && !timeout;
     clearTimeout(timeout);
-    timeout = setTimeout(function() {
+    timeout = setTimeout(function () {
       timeout = null;
       if (!immediate)
         func.apply(context, args);
