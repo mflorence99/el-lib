@@ -96,7 +96,9 @@ export class DrawerPanelComponent implements AfterViewInit, OnDestroy, OnInit {
       }
       // now report as open
       this.isOpen = true;
-      this.context = context || { };
+      this.context = context;
+      if (this.context == null)
+        this.context = { };
       this.opened.emit(this.context);
       this.container.opened(this);
     }
