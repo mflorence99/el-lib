@@ -50,7 +50,7 @@ export function debounce(func: Function,
  * Deep copy an object, albeit not terribly efficiently
  */
 export function deepCopy<T>(obj: T): T {
-  return <T>JSON.parse(JSON.stringify(obj));
+  return (obj == null)? null : <T>JSON.parse(JSON.stringify(obj));
 }
 
 /**
