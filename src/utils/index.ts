@@ -16,7 +16,7 @@ export * from './convert';
  * 
  * @see https://gist.github.com/borismus/1032746
  */
-export function base64ToBuffer(base64: string): Buffer {
+export function base64ToBuffer(base64: string): any {
   const raw = atob(base64);
   const array = new Uint8Array(new ArrayBuffer(raw.length));
   for (let ix = 0; ix < raw.length; ix++)
