@@ -37,7 +37,7 @@
     "@angular/cli": "7",
     "@angular/compiler-cli": "7",
     "@angular/language-service": "7",
-    "@types/node": "11",
+    "@types/node": "10",
     "codelyzer": "5",
     "electron": "3",
     "eslint": "5",
