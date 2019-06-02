@@ -23,7 +23,7 @@ declare var marked: any;
 
 export class MarkdownComponent implements AfterViewInit  {
 
-  @ViewChild('markdown') markdown;
+  @ViewChild('markdown', { static: true }) markdown;
 
   // lifecycle methods
 
