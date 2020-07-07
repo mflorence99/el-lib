@@ -39,7 +39,7 @@
     "@angular/language-service": "8",
     "@types/node": "10",
     "codelyzer": "5",
-    "electron": "3",
+    "electron": "7",
     "eslint": "5",
     "markdown-toc": "1",
     "rimraf": "2",
